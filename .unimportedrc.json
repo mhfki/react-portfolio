@@ -1,0 +1,26 @@
+{
+  "ignoreUnresolved": [
+    [
+      "./assets/blackhole.png",
+      [
+        "src\\Loader.tsx"
+      ]
+    ],
+    [
+      "./assets/react.svg",
+      [
+        "src\\App.tsx"
+      ]
+    ],
+    [
+      "/vite.svg",
+      [
+        "src\\App.tsx"
+      ]
+    ]
+  ],
+  "ignoreUnused": [
+    "react-particles"
+  ],
+  "ignoreUnimported": []
+}
