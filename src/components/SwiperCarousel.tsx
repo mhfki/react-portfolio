@@ -39,26 +39,37 @@ const SwipeCarousel = ({ content }: Props) => {
   const imageRef = useRef<HTMLImageElement | null>(null)
 
   const dragX = useMotionValue(0)
+  const updateImageWidth = () => {
+    if (imageRef.current) {
+      setImageWidth(imageRef.current.clientWidth)
+    }
+  }
 
   useEffect(() => {
-    const intervalRef = setInterval(() => {
-      const x = dragX.get()
+    // const intervalRef = setInterval(() => {
+    //   const x = dragX.get()
 
-      if (x === 0) {
-        setImgIndex((pv) => {
-          if (pv === content.length - 1) {
-            return 0
-          }
-          return pv + 1
-        })
-      }
-    }, AUTO_DELAY)
+    //   if (x === 0) {
+    //     setImgIndex((pv) => {
+    //       if (pv === content.length - 1) {
+    //         return 0
+    //       }
+    //       return pv + 1
+    //     })
+    //   }
+    // }, AUTO_DELAY)
 
-    if (imageRef.current) {
-      setImageWidth(imageRef.current.clientWidth) // Capture the width of the image
+    // Initial width capture
+    updateImageWidth()
+
+    // Add resize event listener
+    window.addEventListener("resize", updateImageWidth)
+
+    // Clean up the event listener on component unmount
+    return () => {
+      // clearInterval(intervalRef)
+      window.removeEventListener("resize", updateImageWidth)
     }
-
-    return () => clearInterval(intervalRef)
   }, [])
 
   const onDragEnd = () => {
@@ -97,11 +108,11 @@ const SwipeCarousel = ({ content }: Props) => {
                 translateX: `-${imgIndex * imageWidth}px`,
               }}
               whileHover={{ scale: 0.9 }}
-              className='w-[20rem] h-[45rem] md:w-[80rem] md:h-[45rem] shrink-0 rounded-xl bg-neutral-800 bg-opacity-100 '
+              className='w-[20rem] h-[45rem] md:w-[40rem] md:h-[50rem] lg:w-[50rem] lg:h-[45rem] xl:w-[64rem] 2xl:w-[80rem] shrink-0 rounded-xl bg-neutral-800 bg-opacity-100 '
             >
-              <div className='bg-black grid w-full h-full bg-opacity-50 px-4 md:px-20 text-white rounded-xl'>
+              <div className='bg-black grid w-full h-full bg-opacity-50 px-4 md:px-10 text-white rounded-xl gap-2'>
                 <div className='header-card content-center mt-2 md:mt-10 relative w-full'>
-                  <img className='w-16 md:w-fit' src={item.logo} />
+                  <img className='w-16 lg:w-fit' src={item.logo} />
                   {item.siteAvailability && (
                     <a href={item.site} target='_blank' className='absolute top-0 right-0 rounded-full bg-white p-3'>
                       <FontAwesomeIcon icon={faArrowUpRightFromSquare} className='text-secondary w-8 h-8' />
@@ -109,15 +120,17 @@ const SwipeCarousel = ({ content }: Props) => {
                   )}
                 </div>
                 <div className='container-card'>
-                  <div className='flex flex-col-reverse gap-5 md:flex-row md:gap-0'>
+                  <div className='flex flex-col-reverse gap-5 lg:flex-row xl:gap-0'>
                     <div className='flex-1'>
                       <div className='headline-card uppercase text-white opacity-60 font-semibold'>{item.responsibilities}</div>
-                      <div className='description-card my-8 uppercase w-56 text-sm md:w-96 md:text-4xl font-semibold'>{item.description}</div>
-                      <div className='item-card w-56 text-sm md:w-96 mb-8'>{item.jobDesc}</div>
-                      <div className='grid gap-2 grid-cols-2 md:grid-cols-4 items-center pr-10'>
+                      <div className='description-card my-8 uppercase text-sm w-56 md:w-full lg:w-64 md:text-xl font-semibold'>
+                        {item.description}
+                      </div>
+                      <div className='item-card w-56 text-sm md:w-full lg:w-64 mb-8'>{item.jobDesc}</div>
+                      <div className='grid gap-2 [grid-template-columns:_repeat(2,_minmax(100px,_0px))] md:[grid-template-columns:_repeat(3,_minmax(150px,_0px))] lg:[grid-template-columns:_repeat(3,_minmax(100px,_0px))] xl:w-fit 2xl:grid-cols-4 items-center pr-10 lg:pr-5'>
                         {item.techStack.map((tech, i) => {
                           return (
-                            <span key={i} className='bg-[#3e3e3e] w-fit py-1.5 px-3 rounded-lg text-primary'>
+                            <span key={i} className='bg-[#3e3e3e] py-1.5 px-2 rounded-lg text-primary'>
                               {tech}
                             </span>
                           )
@@ -125,11 +138,7 @@ const SwipeCarousel = ({ content }: Props) => {
                       </div>
                     </div>
                     <div className='flex-1 '>
-                      <img
-                        src={item.src}
-                        className='w-[17rem] md:w-full rounded-xl object-cover'
-                        alt={item.src}
-                      />
+                      <img src={item.src} className='w-[17rem] md:w-[50rem] rounded-xl object-cover' alt={item.src} />
                       <img
                         src={item.src2}
                         className='absolute top-36 right-0 md:bottom-5 md:-right-3.5 w-16 md:w-28 rounded-xl object-cover'
