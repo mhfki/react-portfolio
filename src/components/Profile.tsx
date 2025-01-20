@@ -1,4 +1,3 @@
-import profile from "../assets/img/profile.jpg"
 import { motion } from "framer-motion"
 
 const Profile = () => {
@@ -33,7 +32,7 @@ const Profile = () => {
           </motion.a>
         </div>
         <div className='flex justify-center md:justify-end w-full content-center'>
-          <img src={profile} id='profile' alt='profile' className='object-cover rounded-xl w-full md:w-96 md:h-96' />
+          <img src='/assets/img/profile.jpg' id='profile' alt='profile' className='object-cover rounded-xl w-full md:w-96 md:h-96' />
         </div>
       </div>
     </section>

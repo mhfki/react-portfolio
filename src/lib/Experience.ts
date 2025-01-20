@@ -1,7 +1,3 @@
-import bankBJBSyariah from "../assets/img/Experience/Bank-BJB-Syariah.jpg"
-import BSP from "../assets/img/Experience/BSP.png"
-import BigIO from "../assets/img/Experience/BigIO.jpg"
-
 export const experiences = [
   {
     company: "Bank BJB Syariah",
@@ -9,7 +5,7 @@ export const experiences = [
     responsibilities: "Full Stack Developer (Outsourcing)",
     jobDesc:
       "I contributed to the development of APIs for both new and existing applications, improved query performance, and participated in the preparation of SIT and UAT.",
-    companyLogo: bankBJBSyariah,
+    companyLogo: "/assets/img/experience/Bank-BJB-Syariah.jpg",
   },
   {
     company: "Bee Solution Partners",
@@ -17,7 +13,7 @@ export const experiences = [
     responsibilities: "Programmer",
     jobDesc:
       "Working with this company I gained a lot of learning experiences, which allowed me to improve my skills in web development, deployment, creating mobile apps, and representing data in a visual form.",
-    companyLogo: BSP,
+    companyLogo: "/assets/img/experience/BSP.png",
   },
   {
     company: "BIG IO",
@@ -25,6 +21,6 @@ export const experiences = [
     responsibilities: "Frontend Developer (Internship)",
     jobDesc:
       "During my internship, I was responsible for maintaining and fixing bugs in an existing web application. I contributed to the development of new features for the web application while collaborating with the team to redesign its interface for a more modern and user-friendly design",
-    companyLogo: BigIO,
+    companyLogo: "/assets/img/experience/BigIO.jpg",
   },
 ]

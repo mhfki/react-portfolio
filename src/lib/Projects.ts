@@ -1,11 +1,9 @@
-import LogoDRK from "../assets/img/projects/DRK/Logo.png"
-
 export const projects = [
   {
     headline: "DASHBOARD REGIDENT KORLANTAS",
     timeline: "2022",
     background: "../assets/img/projects/DRK/background.jpeg",
-    logo: LogoDRK,
+    logo: "/assets/img/projects/DRK/Logo.png",
     src: "/assets/img/projects/DRK/DRK.jpg",
     responsibilities: "Full Stack Developer",
     description: "A Web dashboard for vehicle data visualization",
