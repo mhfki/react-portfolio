@@ -3,9 +3,8 @@ import "react-vertical-timeline-component/style.min.css"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faBriefcase } from "@fortawesome/free-solid-svg-icons"
 import { experiences } from "../lib/Experience"
-import { motion, useTransform, useScroll, useSpring, useAnimation } from "framer-motion"
-import { useRef, useEffect, useState } from "react"
-import { useInView } from "react-intersection-observer"
+import { motion, useTransform, useScroll, useSpring } from "framer-motion"
+import { useRef } from "react"
 
 interface Experience {
   company: string
