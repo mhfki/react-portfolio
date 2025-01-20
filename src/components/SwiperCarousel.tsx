@@ -46,18 +46,18 @@ const SwipeCarousel = ({ content }: Props) => {
   }
 
   useEffect(() => {
-    // const intervalRef = setInterval(() => {
-    //   const x = dragX.get()
+    const intervalRef = setInterval(() => {
+      const x = dragX.get()
 
-    //   if (x === 0) {
-    //     setImgIndex((pv) => {
-    //       if (pv === content.length - 1) {
-    //         return 0
-    //       }
-    //       return pv + 1
-    //     })
-    //   }
-    // }, AUTO_DELAY)
+      if (x === 0) {
+        setImgIndex((pv) => {
+          if (pv === content.length - 1) {
+            return 0
+          }
+          return pv + 1
+        })
+      }
+    }, AUTO_DELAY)
 
     // Initial width capture
     updateImageWidth()
@@ -67,7 +67,7 @@ const SwipeCarousel = ({ content }: Props) => {
 
     // Clean up the event listener on component unmount
     return () => {
-      // clearInterval(intervalRef)
+      clearInterval(intervalRef)
       window.removeEventListener("resize", updateImageWidth)
     }
   }, [])
