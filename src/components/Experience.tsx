@@ -64,8 +64,8 @@ const ExperienceDiv = ({ item, index }: { item: Experience; index: number }) => 
         <div className='flex justify-between'>
           <div className='content-center'>
             <h2 className='vertical-timeline-element-title !text-white font-bold !mb-5'>{item.company}</h2>
-            <span className='vertical-timeline-element-subtitle text-gray-600 block'>{item.date}</span>
-            <span className='vertical-timeline-element-subtitle text-gray-600'>{item.responsibilities}</span>
+            <span className='vertical-timeline-element-subtitle text-primary block'>{item.date}</span>
+            <span className='vertical-timeline-element-subtitle text-primary'>{item.responsibilities}</span>
           </div>
 
           <img alt={item.company} src={item.companyLogo} className='object-cover w-20 h-20 rounded-full ' />
