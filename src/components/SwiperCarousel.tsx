@@ -47,7 +47,7 @@ const SwipeCarousel = ({ content }: Props) => {
 
   useEffect(() => {
     const intervalRef = setInterval(() => {
-      const x = dragX.current;
+      const x = dragX.get();
 
       if (x === 0) {
         setImgIndex((pv) => {
