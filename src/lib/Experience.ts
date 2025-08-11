@@ -2,7 +2,7 @@ export const experiences = [
   {
     company: "Pusdatin Kementrian ATR/BPN",
     date: "Feb 2025 - Present",
-    responsibilities: "Full Stack Developer",
+    responsibilities: "Programmer",
     jobDesc:
       "I was responsible for developing and improving an existing application, while also handling the deployment process and managing open-source applications.",
     companyLogo: "/assets/img/experience/ATR-BPN.jpg",
